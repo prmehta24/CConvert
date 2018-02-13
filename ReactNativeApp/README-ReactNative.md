@@ -39,7 +39,7 @@ Alternative way :
 The app opens!!
 
 ### Using apk
-* Download apk from here : https://drive.google.com/open?id=17gzJINbdhoeFzcYsq8QqBy6T3ObQWxvQ
+* Download apk from here : https://drive.google.com/open?id=1XaQcaB1HOU4obr6sEt1qOchlgRVNIA5f
 * Install in your phone and run it.
 
 ### Expo live demo
