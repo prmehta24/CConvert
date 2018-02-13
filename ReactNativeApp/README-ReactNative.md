@@ -46,6 +46,6 @@ The app opens!!
 To view the demo of the app on Expo:
 * Scan the following QR code
 <img src="./src/qr.png" height=150 width=150 /> OR
-* Open the following URL in your expo app: `exp://gm-s9a.prajna12.reactnativeapp.exp.direct:80`
+* Open the following URL in your expo app: `exp://exp.host/@prajna12/currencySlug`
 
   
