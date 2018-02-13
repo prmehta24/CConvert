@@ -16,10 +16,12 @@ This is a simple mobile application which when instructed to convert a currency 
 ## How to use the app ?
 
 ### Expo version
-* `git clone https://github.com/Prajna12/Curency_convert.git`
-* `cd Curency_convert`
+* `git clone https://github.com/prmehta24/CConvert.git`
+* `cd Cconvert`
 * `npm install`
 * `npm install native-base --save`
+* `npm install --save react-native-keyboard-spacer`
+* `sudo npm install react-native-gifted-chat --save`
 * install 'expo' app on your android device. You can download it from the Google Play Store.
 * `npm start`
   
