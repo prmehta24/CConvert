@@ -17,7 +17,7 @@ This is a simple mobile application which when instructed to convert a currency 
 
 ### Expo version
 * `git clone https://github.com/prmehta24/CConvert.git`
-* `cd Cconvert`
+* `cd CConvert`
 * `npm install`
 * `npm install native-base --save`
 * `npm install --save react-native-keyboard-spacer`
