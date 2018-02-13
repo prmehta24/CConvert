@@ -33,7 +33,7 @@ The app opens!!
 Alternative way :
 * Install expo XDE. Refer https://docs.expo.io/versions/latest/introduction/installation.html for installation.
 * Open expo XDE
-* Click on `Open existing project` and select `Curency_convert`
+* Click on `Open existing project` and select `CConvert`
 * Once the project loads, click on Share.
 * Scan the QR code using the Expo app from your phone (Install from Playstore)
 The app opens!!
@@ -45,7 +45,8 @@ The app opens!!
 ### Expo live demo
 To view the demo of the app on Expo:
 * Scan the following QR code
-<img src="./src/qr.png" height=150 width=150 /> OR
+<img src="./src/qr.png" height=150 width=150 /> 
+#### OR
 * Open the following URL in your expo app: `exp://exp.host/@prajna12/currencySlug`
 
   
