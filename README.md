@@ -9,4 +9,4 @@ It was done using React-native by Parimal Mehta  ([@prmehta24](https://github.co
 The frontend of the web application was done using ReactJs by Nikita Mittal (In progress).
 
 ### Backend
-The backend was done using Python Flask by Shubh and Satvik Swaminathan. 
+The backend was done using Python Flask by Shubham Kumar and Satvik Swaminathan. 
