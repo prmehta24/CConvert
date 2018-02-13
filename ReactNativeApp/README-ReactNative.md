@@ -37,5 +37,10 @@ Alternative way :
 The app opens!!
 
 ### Using apk
-*Download apk from here :
-*Install in your phone and run it.
+* Download apk from here :
+* Install in your phone and run it.
+
+### Expo live demo
+To view the demo of the app on Expo:
+* Scan the following QR code
+  
