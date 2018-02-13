@@ -2,8 +2,8 @@
 import React from 'react';
 import { StyleSheet, Text, View,TextInput,Button,KeyboardAvoidingView, Animated, Keyboard, FlatList, Alert, ScrollView  } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Container, Header, Content, Form, Item, Input,Footer } from 'native-base';
-import {GiftedChat} from 'react-native-gifted-chat';
+import { Container, Header, Content, Form, Item, Input,Footer,Right } from 'native-base';
+import {GiftedChat,Bubble} from 'react-native-gifted-chat';
 export default class ChatBox extends React.Component {
   static navigationOptions = {
     title: "Chat"
@@ -14,7 +14,7 @@ export default class ChatBox extends React.Component {
     this.state = {
       query : ' ',
       messages: [],
-      resp: 'Welcome',
+      resp: 'Hello!\nThe format for converting currency is:\nconvert (value) (currency_initial) to (currency_final)',
       onTyping:''
     };
   }
@@ -31,7 +31,7 @@ export default class ChatBox extends React.Component {
           user: {
             _id: 2,
             name: 'Bot',
-            // avatar: 'https://facebook.github.io/react/img/logo_og.png',
+            avatar: require('./bot1.png')
           },
         }
       ]
@@ -89,10 +89,7 @@ export default class ChatBox extends React.Component {
       console.log(responseJson);
       this.setState({resp:responseJson.result.fulfillment.speech});
       console.log(responseJson.result.fulfillment.speech)
-     // Alert.alert(this.state.resp);
       this.onReceive(this.state.resp);
-     // this.state.messages.push(this.state.query);
-     // this.state.messages.push(this.state.resp);
       })
     .catch((error) => {
       console.log(error);
@@ -110,7 +107,6 @@ export default class ChatBox extends React.Component {
     this.handleQuery()
     }
     async onReceive(text) {
-     // Alert.alert(text);
       this.setState((previousState) => {
         return {
           messages: GiftedChat.append(previousState.messages, {
@@ -120,43 +116,58 @@ export default class ChatBox extends React.Component {
             user: {
               _id: 2,
               name: 'Bot',
-              // avatar: 'https://facebook.github.io/react/img/logo_og.png',
+              avatar:require('./bot1.png')
             },
           }),
         };
       });
     }
 
-  
+    renderBubble(props) { 
+      return ( <Bubble {...props} 
+      wrapperStyle={{
+          left: {
+            backgroundColor: '#FFB347',
+          },
+          right: {
+            backgroundColor: '#AB82FF'
+          }
+        }}
+      textStyle={{
+        left:{
+          color:'#fff'
+        }
+      }} />
+      )}
   render() {
     const { navigate } = this.props.navigation;
     const { messages } = this.state;
     const { params } = this.props.navigation.state;
     const username = params ? params.username : null;
-   // console.log("Username : "+username);
-    return (
-     
-  
-
-
-    
+    return ( 
  <Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
- 
-<GiftedChat
-messages={this.state.messages}
-onSend={messages => this.onSend(messages)}
-//onPressActionButton={this.handleQuery()}
-placeholder = "Type your message here..."
-showUserAvatar = {true}
-//forceGetKeyboardHeight={true}
-user = {
-          
+ <Header style={{backgroundColor:'#fff'}} noShadow={true} >
+ <Right>
+  <Button 
+  onPress={() => navigate("Login", {screen: "Login"})}
+  title="Logout"
+  color="#5747ff"
+  />
+  </Right>
+ </Header>
+ <GiftedChat
+ messages={this.state.messages}
+ onSend={messages => this.onSend(messages)}
+ placeholder = "Type your message here..."
+ showUserAvatar = {true}
+ user = {        
             {
               _id: 1,
               name: username,
-              // avatar: 'https://facebook.github.io/react/img/logo_og.png',
+              avatar:require('./user1.png')
             }
           }
+renderBubble = {this.renderBubble}
 /> 
 
  </Animated.View>
@@ -169,16 +180,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    
-   // alignItems: 'center',
-   // justifyContent: 'flex-end',
-   // padding:10,
-  },
-  query: {
-
-    color : 'red'
-  },
-  reply: {
-    color: 'blue'
   },
 });
