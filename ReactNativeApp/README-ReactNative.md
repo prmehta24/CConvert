@@ -1,5 +1,6 @@
 # Currency convert mobile application
 This is a simple mobile application which when instructed to convert a currency from one to another will return the converted amount.
+
 ![alt text](./src/AppDemo.gif)
 
 ## How does it work?
@@ -44,7 +45,7 @@ The app opens!!
 ### Expo live demo
 To view the demo of the app on Expo:
 * Scan the following QR code
-![alt text](./src/qr.png)
+<Image source="https://github.com/prmehta24/CConvert/ReactNativeApp/src/qr.png" height=150 width=150>
 OR
 * Open the following URL in your expo app: `exp://gm-s9a.prajna12.reactnativeapp.exp.direct:80`
 
