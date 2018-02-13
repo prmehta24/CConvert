@@ -45,8 +45,7 @@ The app opens!!
 ### Expo live demo
 To view the demo of the app on Expo:
 * Scan the following QR code
-<Image source="https://github.com/prmehta24/CConvert/blob/master/ReactNativeApp/src/qr.png" height=150 width=150>
-OR
+<Image source="./src/qr.png" height=150 width=150> OR
 * Open the following URL in your expo app: `exp://gm-s9a.prajna12.reactnativeapp.exp.direct:80`
 
   
