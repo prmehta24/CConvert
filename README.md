@@ -1,5 +1,5 @@
 # "CConvert" 
-This application was built as part of Hasura Product Development Fellowship 2017-18 by Team 63PF. It converts a given amount from 1 currency to another.
+This application was built as part of Hasura Product Development Fellowship 2017-18 by Team 63PF. It converts a given amount from one currency to another.
 
 ## Collaborators
 ### Frontend-Mobile application
