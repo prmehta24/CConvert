@@ -20,8 +20,7 @@ This is a simple mobile application which when instructed to convert a currency 
 * `cd CConvert/ReactNativeApp`
 * `npm install`
 * `npm install native-base --save`
-* `npm install --save react-native-keyboard-spacer`
-* `sudo npm install react-native-gifted-chat --save`
+* `npm install react-native-gifted-chat --save`
 * install 'expo' app on your android device. You can download it from the Google Play Store.
 * `npm start`
   
