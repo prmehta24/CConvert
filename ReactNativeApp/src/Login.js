@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert  } from 'react-native';
 import { Container, Header, Content, Form, Item, Input } from 'native-base';
+import PasswordInputText from 'react-native-hide-show-password-input';
 export default class Login extends React.Component {
   constructor(props){
     super(props);
@@ -66,10 +67,10 @@ export default class Login extends React.Component {
           placeholder="Username"
           onChangeText={(text) => this.setState({username:text})}
         />
-          <TextInput
-         style={{height: 40}}
-          placeholder="Password"
-          onChangeText={(text) => this.setState({password:text})}
+        <PasswordInputText
+          style={{height: 40}}
+          value={this.state.password}
+          onChangeText={ (password) => this.setState({ password }) }
         />
         <View  style={{paddingBottom:10}}>
         <Button

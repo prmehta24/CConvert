@@ -12,5 +12,10 @@ export const Stacks = StackNavigator({
     Login: { screen: Login},
     SignUp: { screen: SignUp},
     ChatBox: {screen: ChatBox},
-  });
+  },
+{
+  initialRouteName:"Login",
+  headerMode: "none"
+}
+);
 
