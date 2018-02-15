@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert  } from 'react-native';
-import { Container, Header, Content, Form, Item, Input } from 'native-base';
-import PasswordInputText from 'react-native-hide-show-password-input';
+import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert,Switch  } from 'react-native';
+import { Container, Header, Content, Form, Item, Input,Right,Icon } from 'native-base';
 export default class Login extends React.Component {
   constructor(props){
     super(props);
+    this.toggleSwitch = this.toggleSwitch.bind(this);
     this.state = {
 	  	isLoggedIn : false,
 	  	username : '',
       password : '',
+      showPassword: true,
 	  }
   }
   static navigationOptions = {
@@ -56,23 +57,44 @@ export default class Login extends React.Component {
       console.log(error);
     });
   }
+  toggleSwitch() {
+    this.setState({ showPassword: !this.state.showPassword });
+  }
+
   render() {
     const { navigate } = this.props.navigation
     
     return (
       <KeyboardAvoidingView  style={styles.container} behavior="padding">
-        
-        <TextInput
+        <Item>
+        <Input
           style={{height: 40}}
           placeholder="Username"
           onChangeText={(text) => this.setState({username:text})}
         />
-        <PasswordInputText
-          style={{height: 40}}
-          value={this.state.password}
-          onChangeText={ (password) => this.setState({ password }) }
+        </Item>
+        <Item>
+          <Input
+         style={{height: 40}}
+          placeholder="Password"
+          secureTextEntry={this.state.showPassword}
+          onChangeText={(text) => this.setState({password:text})}
         />
+         <Switch
+          onValueChange={this.toggleSwitch}
+          value={!this.state.showPassword}
+        /> 
+        </Item>
         <View  style={{paddingBottom:10}}>
+        <Text>
+
+
+
+
+
+
+
+          </Text>
         <Button
   onPress={() => { this.handleLoginPressed()
    // if(this.state.isLoggedIn == true) 

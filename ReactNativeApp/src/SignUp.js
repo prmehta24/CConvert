@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert } from 'react-native';
+import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert,Switch } from 'react-native';
+import { Container, Header, Content, Form, Item, Input,Right,Icon } from 'native-base';
 export default class SignUp extends React.Component {
   
   constructor(props){
     super(props);
+    this.toggleSwitch = this.toggleSwitch.bind(this);
     this.state = {
 	  	isLoggedIn : false,
 	  	username : ' ',
       password : ' ',
       email : ' ',
       authToken:' ',
-      // loading: true,
-      // error: false,
-      // posts: [],
+      showPassword: true,
 	  }
   }
   static navigationOptions = {
@@ -60,25 +60,57 @@ export default class SignUp extends React.Component {
         console.log(error);
       });
     }
-
+    toggleSwitch() {
+      this.setState({ showPassword: !this.state.showPassword });
+    }
+  
 
   render() {
     const { navigate } = this.props.navigation
     return (
       <KeyboardAvoidingView  style={styles.container} behavior="padding">
-         <TextInput
+      <Item>
+         <Input
           style={{height: 40}}
           placeholder="Username"
-         // value={this.state.uname} 
          returnKeyLabel = {"next"} 
          onChangeText={(text) => this.setState({username:text})}
         />
-          <TextInput
+        </Item>
+        <Item>
+          <Input
          style={{height: 40}}
           placeholder="Set Password"
-          value={this.state.pass} 
+          secureTextEntry={this.state.showPassword}
           onChangeText={(text) => this.setState({password:text})}
         />
+         <Switch
+          onValueChange={this.toggleSwitch}
+          value={!this.state.showPassword}
+        /> 
+        </Item>
+        <Item>
+          <Input
+          style={{height: 40}}
+          placeholder="e-mail ID"
+          onChangeText={(text) => this.setState({email:text})}
+          keyboardType="email-address" />
+          
+          </Item>
+          <Text>
+
+
+
+
+
+
+
+
+
+
+
+
+            </Text>
     <Button
   onPress={() => { 
     {
