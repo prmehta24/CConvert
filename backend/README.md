@@ -58,4 +58,4 @@ This URL gives a response with the converted values of the desired currency
     },
     "sessionId": "ed49f385-decb-4859-bebd-1dd6b842ac1c"
 }`
-The desired output will be `displayText` which is under `fulfillment`
+- The desired output will be `displayText` which is under `fulfillment`
