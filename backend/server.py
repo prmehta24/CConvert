@@ -5,7 +5,6 @@ import json
 from src import app
 
 api = Api(app)
-ACCESS_TOKEN = "4698f4c543d948d0f351984b084acacc5e574514ce98ab50"
 
 
 @api.route('/webhook')
