@@ -1,8 +1,8 @@
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { StyleSheet, View,TextInput,KeyboardAvoidingView,Alert  } from 'react-native';
-import { Container, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text } from 'native-base';
-import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo } from '@expo/vector-icons';
+import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H1,Body,Title,Thumbnail} from 'native-base';
+import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
 export default class Login extends React.Component {
   constructor(props){
     super(props);
@@ -93,29 +93,43 @@ export default class Login extends React.Component {
 <View style={{ height: 60 }} />
 </KeyboardAvoidingView>*/
 
-<Container style={styles.container}>
+<Container >
+<Header  >
 
-<Content contentContainerStyle={{flex:1,justifyContent: 'center'}}>
+ <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>Welcome to CConvert</Title></Body>
+ 
+ 
+</Header>
+<Content contentContainerStyle={{flex:1,justifyContent: 'center',backgroundColor:'#28D49A'}}>
 
-<Form style={styles.form} >
-<Item fixedLabel rounded={true} style={{backgroundColor: 'white'}}>
-  <Label  style={{padding: 10}}>Username</Label>
-  <Input onChangeText={(text) => this.setState({username:text})} />
+<Card style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
+
+<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Thumbnail large source={require('./logo.png')}/></Item>
+<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text>Convert your Currency</Text></Item>
+<Item rounded={true} style={{backgroundColor:'white',marginBottom:10}} >
+<FontAwesome name='user' size={25} style={{marginLeft:10}} />
+  
+  <Input placeholder= "Username" onChangeText={(text) => this.setState({username:text})} />
 </Item>
-<Item fixedLabel rounded last style={{backgroundColor: 'white'}}>
-  <Label  >Password</Label>
-  <Input secureTextEntry={true}  onChangeText={(text) => this.setState({password:text})}/>
+<Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10}} >
+<FontAwesome name='lock' size={25} style={{marginLeft:10}}  />
+ 
+  <Input secureTextEntry={true} placeholder="Password" onChangeText={(text) => this.setState({password:text})}/>
 </Item>
 
-<Item  style={{paddingTop:10, justifyContent:'center',borderColor:'transparent'}}>
-<Button style={{padding:20}} rounded
+<Item style={{ justifyContent: 'center',borderColor:'transparent'}}>
+<Button  rounded style={{padding:10,marginBottom:10}}
 onPress={() => { this.handleLoginPressed()
    
     }}>
             <Entypo name='login' size={20} />
-            <Text>Login</Text>
+            <Text>Login   </Text>
           </Button>
-          <Button style={{padding:20}} rounded 
+         
+         </Item>
+         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text>Don't have account yet?</Text></Item>
+         <Item style={{ justifyContent: 'center',borderColor:'transparent',marginBottom:10}}>
+         <Button rounded style={{padding:10}}
           onPress={() => navigate("SignUp", {screen: "SignUp"})}
           >
           <MaterialIcons name='person-add' size={20} />
@@ -123,7 +137,9 @@ onPress={() => { this.handleLoginPressed()
             
           </Button>
          </Item>
-         </Form>
+         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item>
+         </Card>
+        
 
 </Content>
 </Container>
@@ -132,19 +148,3 @@ onPress={() => { this.handleLoginPressed()
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-   // flex: 1,
-    backgroundColor: '#28D49A',
-   // alignItems: 'center',
-   // justifyContent: 'center',
-   // padding:10,
-  },
-  form:{
-  //  flex: 1,
-   
-  //  alignItems: 'center',
-  //  justifyContent: 'center',
-    padding:10,
-  },
-});
