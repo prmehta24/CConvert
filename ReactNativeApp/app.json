@@ -1,6 +1,11 @@
 {
   "expo": {
     "sdkVersion": "23.0.0",
-	"slug": "HelloWorld"
-  }
+  "slug": "HelloWorld",
+  "androidStatusBar": {
+    "backgroundColor": "#22EE5B",
+  },
+  },
+ 
+  
 }

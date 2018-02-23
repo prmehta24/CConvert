@@ -16,7 +16,8 @@ export default class SignUp extends React.Component {
 	  }
   }
   static navigationOptions = {
-    title: "Sign Up"
+    title: "Sign Up",
+    header:null,
   }
  
 
