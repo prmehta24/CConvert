@@ -28,7 +28,7 @@ export default class Login extends React.Component {
     const { navigate } = this.props.navigation
     
     
-    var url = "https://auth.animosity52.hasura-app.io/v1/login";
+    var url = "https://auth.hundred76.hasura-app.io/v1/login";
 
     var requestOptions = {
         "method": "POST",
@@ -101,9 +101,9 @@ export default class Login extends React.Component {
 <View style={{ height: 60 }} />
 </KeyboardAvoidingView>*/
 
-<Container style={{paddingTop:Expo.Constants.statusBarHeight}} >
+<Container style={{height:Expo.Constants.statusBarHeight}} >
 { this.state.fontLoaded ? (
-<Header  >
+<Header  style={{backgroundColor:'#276971'}} >
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>Welcome to CConvert</Title></Body>
 </Header> ):null}
 { this.state.fontLoaded ? (
@@ -121,7 +121,7 @@ export default class Login extends React.Component {
 <Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10}} >
 <FontAwesome name='lock' size={25} style={{marginLeft:10}}  />
   <Input secureTextEntry={true} placeholder="Password" onChangeText={(text) => this.setState({password:text})}/>
- <Button> <Entypo name='eye' size={25} style={{marginLeft:10}} /> </Button>
+
 </Item>
 
 <Item style={{ justifyContent: 'center',borderColor:'transparent'}}>

@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert } from 'react-native';
+import { StyleSheet,View,TextInput,KeyboardAvoidingView,Alert } from 'react-native';
+import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H1,Body,Title,Thumbnail} from 'native-base';
+import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
 export default class SignUp extends React.Component {
   
   constructor(props){
@@ -24,7 +26,7 @@ export default class SignUp extends React.Component {
   handleSignupPressed = async() => {
     const { navigate } = this.props.navigation
     
-      var url = "https://auth.animosity52.hasura-app.io/v1/signup";
+      var url = "https://auth.hundred76.hasura-app.io/v1/signup";
   
       var requestOptions = {
           "method": "POST",
@@ -66,38 +68,61 @@ export default class SignUp extends React.Component {
   render() {
     const { navigate } = this.props.navigation
     return (
-      <KeyboardAvoidingView  style={styles.container} behavior="padding">
-         <TextInput
-          style={{height: 40}}
-          placeholder="Username"
-         // value={this.state.uname} 
-         returnKeyLabel = {"next"} 
-         onChangeText={(text) => this.setState({username:text})}
-        />
-          <TextInput
-         style={{height: 40}}
-          placeholder="Set Password"
-          value={this.state.pass} 
-          onChangeText={(text) => this.setState({password:text})}
-        />
-    <Button
-  onPress={() => { 
-    {
-    this.handleSignupPressed()
     
-    //if(this.state.isLoggedIn === true) 
-   // {
-  //    console.log("isLoggedIn: "+this.state.isLoggedIn);
-   //             
-   // }
-              }}}
-  title="Register"
-  color="#841584"
+<Container style={{height:Expo.Constants.statusBarHeight}} >
+
+<Header  style={{backgroundColor:'#276971'}} >
+ <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>Welcome to CConvert</Title></Body>
+</Header> 
+
+<Content contentContainerStyle={{flex:1,justifyContent: 'center',backgroundColor:'#28D49A'}}>
+
+<Card style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
+
+<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Thumbnail large source={require('./logo.png')}/></Item>
+<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text>Convert your Currency</Text></Item>
+<Item rounded={true} style={{backgroundColor:'white',marginBottom:10}} >
+<FontAwesome name='user' size={25} style={{marginLeft:10}} />
   
-/>
-<View style={{ height: 60 }} />
-</KeyboardAvoidingView>
-    );
+  <Input placeholder= "Username" onChangeText={(text) => this.setState({username:text})} />
+</Item>
+<Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10}} >
+<FontAwesome name='lock' size={25} style={{marginLeft:10}}  />
+  <Input secureTextEntry={true} placeholder="Password" onChangeText={(text) => this.setState({password:text})}/>
+
+</Item>
+
+<Item style={{ justifyContent: 'center',borderColor:'transparent'}}>
+<Button  rounded style={{padding:10,marginBottom:10}}
+onPress={() => { this.handleSignupPressed()
+   
+    }}>
+            <Entypo name='add-user' size={20} />
+            <Text>Register</Text>
+          </Button>
+         
+         </Item>
+         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text>Already have an account?</Text></Item>
+         <Item style={{ justifyContent: 'center',borderColor:'transparent',marginBottom:10}}>
+         <Button rounded style={{padding:10}}
+          onPress={() => navigate("Login", {screen: "Login"})}
+          >
+          <Entypo name='back' size={20} />
+            <Text>Back   </Text>
+            
+          </Button>
+         </Item>
+         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item>
+         </Card>
+        
+
+</Content>
+
+</Container>
+
+
+
+);
   }
   
  

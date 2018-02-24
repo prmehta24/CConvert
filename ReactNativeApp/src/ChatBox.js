@@ -146,7 +146,8 @@ export default class ChatBox extends React.Component {
     const { params } = this.props.navigation.state;
     const username = params ? params.username : null;
     return ( 
- <Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
+ //<Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
+ <View style={styles.container}>
  <Header style={{backgroundColor:'#fff'}} noShadow={true} >
  <Right>
   <Button 
@@ -170,8 +171,8 @@ export default class ChatBox extends React.Component {
           }
 renderBubble = {this.renderBubble}
 /> 
-
- </Animated.View>
+</View>
+// </Animated.View>
  
     );
   }
