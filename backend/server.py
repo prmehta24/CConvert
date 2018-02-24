@@ -1,4 +1,5 @@
 from flask_restplus import Api, Resource
+from decimal import Decimal
 import requests
 import json
 
@@ -24,7 +25,7 @@ class Todo(Resource):
         req = requests.get("https://api.fixer.io/latest?base=" + currency_from)
         abc = req.json()
         rate = float(abc["rates"][currency_to])
-        converted_amount = str(amount * rate)
+        converted_amount = str(round(Decimal(amount * rate),2))
         speech = "The converted amount is : " + converted_amount + " " + currency_to
         response = {
             "speech": speech,
