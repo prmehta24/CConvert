@@ -8,7 +8,6 @@ export default class ChatBox extends React.Component {
   static navigationOptions = {
     title: "Chat",
     header:null
-
   }
   constructor(props) {
     super(props);
@@ -16,7 +15,7 @@ export default class ChatBox extends React.Component {
     this.state = {
       query : ' ',
       messages: [],
-      resp: 'Hello!\nThe format for converting currency is:\nconvert (value) (currency_initial) to (currency_final)',
+      resp: 'Hello!\nType your query to convert the currency :)',
       onTyping:''
     };
   }
@@ -147,8 +146,7 @@ export default class ChatBox extends React.Component {
     const { params } = this.props.navigation.state;
     const username = params ? params.username : null;
     return ( 
-      
- <View style={[styles.container/*, { paddingBottom: this.keyboardHeight }*/]}>
+ <Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
  <Header style={{backgroundColor:'#fff'}} noShadow={true} >
  <Right>
   <Button 
@@ -173,7 +171,7 @@ export default class ChatBox extends React.Component {
 renderBubble = {this.renderBubble}
 /> 
 
- </View>
+ </Animated.View>
  
     );
   }

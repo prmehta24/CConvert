@@ -10,11 +10,19 @@ export default class Login extends React.Component {
 	  	isLoggedIn : false,
 	  	username : '',
       password : '',
+      fontLoaded: false
 	  }
   }
   static navigationOptions = {
   //  title: "Login",
    header:null,
+  }
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    });
+  this.setState({ fontLoaded: true });
   }
   handleLoginPressed = async() => {
     const { navigate } = this.props.navigation
@@ -93,13 +101,12 @@ export default class Login extends React.Component {
 <View style={{ height: 60 }} />
 </KeyboardAvoidingView>*/
 
-<Container >
+<Container style={{paddingTop:Expo.Constants.statusBarHeight}} >
+{ this.state.fontLoaded ? (
 <Header  >
-
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>Welcome to CConvert</Title></Body>
- 
- 
-</Header>
+</Header> ):null}
+{ this.state.fontLoaded ? (
 <Content contentContainerStyle={{flex:1,justifyContent: 'center',backgroundColor:'#28D49A'}}>
 
 <Card style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
@@ -113,8 +120,8 @@ export default class Login extends React.Component {
 </Item>
 <Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10}} >
 <FontAwesome name='lock' size={25} style={{marginLeft:10}}  />
- 
   <Input secureTextEntry={true} placeholder="Password" onChangeText={(text) => this.setState({password:text})}/>
+ <Button> <Entypo name='eye' size={25} style={{marginLeft:10}} /> </Button>
 </Item>
 
 <Item style={{ justifyContent: 'center',borderColor:'transparent'}}>
@@ -142,9 +149,9 @@ onPress={() => { this.handleLoginPressed()
         
 
 </Content>
+):null}
 </Container>
 
     );
   }
 }
-
