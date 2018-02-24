@@ -1,22 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert,Switch } from 'react-native';
-import { Container, Header, Content, Form, Item, Input,Right,Icon } from 'native-base';
+import { StyleSheet, Text, View,Button,TextInput,KeyboardAvoidingView,Alert } from 'react-native';
 export default class SignUp extends React.Component {
   
   constructor(props){
     super(props);
-    this.toggleSwitch = this.toggleSwitch.bind(this);
     this.state = {
 	  	isLoggedIn : false,
 	  	username : ' ',
       password : ' ',
       email : ' ',
       authToken:' ',
-      showPassword: true,
+      // loading: true,
+      // error: false,
+      // posts: [],
 	  }
   }
   static navigationOptions = {
-    title: "Sign Up"
+    title: "Sign Up",
+    header:null,
   }
  
 
@@ -60,57 +61,25 @@ export default class SignUp extends React.Component {
         console.log(error);
       });
     }
-    toggleSwitch() {
-      this.setState({ showPassword: !this.state.showPassword });
-    }
-  
+
 
   render() {
     const { navigate } = this.props.navigation
     return (
       <KeyboardAvoidingView  style={styles.container} behavior="padding">
-      <Item>
-         <Input
+         <TextInput
           style={{height: 40}}
           placeholder="Username"
+         // value={this.state.uname} 
          returnKeyLabel = {"next"} 
          onChangeText={(text) => this.setState({username:text})}
         />
-        </Item>
-        <Item>
-          <Input
+          <TextInput
          style={{height: 40}}
           placeholder="Set Password"
-          secureTextEntry={this.state.showPassword}
+          value={this.state.pass} 
           onChangeText={(text) => this.setState({password:text})}
         />
-         <Switch
-          onValueChange={this.toggleSwitch}
-          value={!this.state.showPassword}
-        /> 
-        </Item>
-        <Item>
-          <Input
-          style={{height: 40}}
-          placeholder="e-mail ID"
-          onChangeText={(text) => this.setState({email:text})}
-          keyboardType="email-address" />
-          
-          </Item>
-          <Text>
-
-
-
-
-
-
-
-
-
-
-
-
-            </Text>
     <Button
   onPress={() => { 
     {
