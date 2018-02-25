@@ -1,14 +1,19 @@
 import React, { PureComponent } from 'react';
-import { View, Text, NetInfo, Dimensions, StyleSheet,Image } from 'react-native';
+import { View, Text, NetInfo, StyleSheet,Image,ImageBackground,Dimensions } from 'react-native';
 import { Container,Item } from 'native-base'
-const { width } = Dimensions.get('window');
+
+var {height, width} = Dimensions.get('window');
+
 function OfflineSign() {
   return (
     <Container>
+    <Item>
+    <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height}}>
     <Item style={styles.offlineContainer}>
-      <Text style={styles.offlineText}>No Internet Connection</Text>
-    {/* <Image source={require('../Assets/back.jpg')} blurRadius={ 2 }  /> */}
+    <Text style={styles.offlineText}>No Internet Connection</Text>
     </Item>
+    </ImageBackground> 
+        </Item>
     </Container>
   );
 }
@@ -24,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    width,
+    width: width,
     position: 'absolute',
     top: 30
   },
