@@ -1,14 +1,14 @@
 
 import React from 'react';
-import { StyleSheet, Text, View,TextInput,Button,KeyboardAvoidingView, Animated, Keyboard, FlatList, Alert, ScrollView  } from 'react-native';
+import { StyleSheet, View,TextInput,KeyboardAvoidingView, Animated, Keyboard, FlatList, Alert, ScrollView  } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Container, Header, Content, Form, Item, Input,Footer,Right } from 'native-base';
+import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H1,Body,Title,Thumbnail} from 'native-base';
+import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
 import {GiftedChat,Bubble} from 'react-native-gifted-chat';
 export default class ChatBox extends React.Component {
   static navigationOptions = {
     title: "Chat",
     header:null
-
   }
   constructor(props) {
     super(props);
@@ -16,7 +16,7 @@ export default class ChatBox extends React.Component {
     this.state = {
       query : ' ',
       messages: [],
-      resp: 'Hello!\nThe format for converting currency is:\nconvert (value) (currency_initial) to (currency_final)',
+      resp: 'Hello!\nType your query to convert the currency :)',
       onTyping:''
     };
   }
@@ -147,15 +147,18 @@ export default class ChatBox extends React.Component {
     const { params } = this.props.navigation.state;
     const username = params ? params.username : null;
     return ( 
-      
- <View style={[styles.container/*, { paddingBottom: this.keyboardHeight }*/]}>
- <Header style={{backgroundColor:'#fff'}} noShadow={true} >
+ //<Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
+ <View style={styles.container}>
+ <Header style={{backgroundColor:'#276971'}} noShadow={true} >
+ <Left><Thumbnail small source={require('./logo.png')} /></Left>
+ <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
  <Right>
-  <Button 
-  onPress={() => navigate("Login", {screen: "Login"})}
-  title="Logout"
-  color="#5747ff"
-  />
+  <Button style={{padding:5}}
+onPress={() => navigate("Login", {screen: "Login"})} >
+            <MaterialCommunityIcons name='logout-variant' size={20} />
+           <Text>Logout</Text>
+          </Button>
+          
   </Right>
  </Header>
  <GiftedChat
@@ -172,8 +175,8 @@ export default class ChatBox extends React.Component {
           }
 renderBubble = {this.renderBubble}
 /> 
-
- </View>
+</View>
+// </Animated.View>
  
     );
   }
@@ -182,6 +185,6 @@ renderBubble = {this.renderBubble}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#28D49A',
   },
 });

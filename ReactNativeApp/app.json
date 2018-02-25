@@ -5,6 +5,9 @@
 	"version": "1.0.0",    
 	"slug": "currencySlug",
 	"sdkVersion": "23.0.0",
+	"androidStatusBar":{
+				"backgroundColor":"#8E316B"
+			   },
        	"android": {
 		    "package": "com.example.CConvert"
 		   }

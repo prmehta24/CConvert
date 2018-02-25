@@ -10,17 +10,25 @@ export default class Login extends React.Component {
 	  	isLoggedIn : false,
 	  	username : '',
       password : '',
+      fontLoaded: false
 	  }
   }
   static navigationOptions = {
   //  title: "Login",
    header:null,
   }
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    });
+  this.setState({ fontLoaded: true });
+  }
   handleLoginPressed = async() => {
     const { navigate } = this.props.navigation
     
     
-    var url = "https://auth.animosity52.hasura-app.io/v1/login";
+    var url = "https://auth.hundred76.hasura-app.io/v1/login";
 
     var requestOptions = {
         "method": "POST",
@@ -46,7 +54,12 @@ export default class Login extends React.Component {
       console.log(responseJson);
       
       if(responseJson.auth_token === undefined)
-      Alert.alert("Error: "+responseJson.message);
+      {
+        if(responseJson.message === "cluster is processing action: waking" || responseJson.status === "waking")
+        Alert.alert("Please wait for sometime");
+        else
+        Alert.alert("Error: "+responseJson.message);
+      }
       else
       {
      // this.setState({isLoggedIn:true})
@@ -93,13 +106,12 @@ export default class Login extends React.Component {
 <View style={{ height: 60 }} />
 </KeyboardAvoidingView>*/
 
-<Container >
-<Header  >
-
+<Container style={{height:Expo.Constants.statusBarHeight}} >
+{ this.state.fontLoaded ? (
+<Header  style={{backgroundColor:'#276971'}} >
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>Welcome to CConvert</Title></Body>
- 
- 
-</Header>
+</Header> ):null}
+{ this.state.fontLoaded ? (
 <Content contentContainerStyle={{flex:1,justifyContent: 'center',backgroundColor:'#28D49A'}}>
 
 <Card style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
@@ -113,8 +125,8 @@ export default class Login extends React.Component {
 </Item>
 <Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10}} >
 <FontAwesome name='lock' size={25} style={{marginLeft:10}}  />
- 
   <Input secureTextEntry={true} placeholder="Password" onChangeText={(text) => this.setState({password:text})}/>
+
 </Item>
 
 <Item style={{ justifyContent: 'center',borderColor:'transparent'}}>
@@ -142,6 +154,7 @@ onPress={() => { this.handleLoginPressed()
         
 
 </Content>
+):null}
 </Container>
 
     );
