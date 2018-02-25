@@ -33,7 +33,7 @@ export default class ChatBox extends React.Component {
           user: {
             _id: 2,
             name: 'Bot',
-            avatar: require('./bot1.png')
+            avatar: require('../Assets/bot1.png')
           },
         }
       ]
@@ -118,7 +118,7 @@ export default class ChatBox extends React.Component {
             user: {
               _id: 2,
               name: 'Bot',
-              avatar:require('./bot1.png')
+              avatar:require('../Assets/bot1.png')
             },
           }),
         };
@@ -150,7 +150,7 @@ export default class ChatBox extends React.Component {
  //<Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
  <View style={styles.container}>
  <Header style={{backgroundColor:'#276971'}} noShadow={true} >
- <Left><Thumbnail small source={require('./logo.png')} /></Left>
+ <Left><Thumbnail small source={require('../Assets/logo.png')} /></Left>
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
  <Right>
   <Button style={{padding:5}}
@@ -170,7 +170,7 @@ onPress={() => navigate("Login", {screen: "Login"})} >
             {
               _id: 1,
               name: username,
-              avatar:require('./user1.png')
+              avatar:require('../Assets/user1.png')
             }
           }
 renderBubble = {this.renderBubble}

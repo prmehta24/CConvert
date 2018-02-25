@@ -1,15 +1,15 @@
 {
   "expo": {
 	"name": "CConvert",
-	"icon": "./src/logo.png",
+	"icon": "./Assets/logo.png",
 	"version": "1.0.0",    
 	"slug": "currencySlug",
 	"sdkVersion": "23.0.0",
 	"androidStatusBar":{
-				"backgroundColor":"#8E316B"
+				"backgroundColor":"#2826ff"
 			   },
        	"android": {
 		    "package": "com.example.CConvert"
-		   }
+		   },
   }
 }

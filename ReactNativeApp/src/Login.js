@@ -116,7 +116,7 @@ export default class Login extends React.Component {
 
 <Card style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
 
-<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Thumbnail large source={require('./logo.png')}/></Item>
+<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Thumbnail large source={require('../Assets/logo.png')}/></Item>
 <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text>Convert your Currency</Text></Item>
 <Item rounded={true} style={{backgroundColor:'white',marginBottom:10}} >
 <FontAwesome name='user' size={25} style={{marginLeft:10}} />

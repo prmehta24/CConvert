@@ -1,7 +1,7 @@
 # Currency convert mobile application
 This is a simple mobile application which when instructed to convert a currency from one to another will return the converted amount.
 
-![alt text](./src/AppDemo.gif)
+![alt text](./Assets/AppDemo.gif)
 
 ## How does it work?
 * This app is built using React-Native for frontend and Python Flask for backend.
@@ -45,7 +45,7 @@ The app opens!!
 ### Expo live demo
 To view the demo of the app on Expo:
 * Scan the following QR code
-<img src="./src/qr.png" height=150 width=150 /> 
+<img src="./Assets/qr.png" height=150 width=150 /> 
 
 #### OR
 
