@@ -21,10 +21,12 @@
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
     "expo": "^23.0.4",
+    "native-base": "^2.3.8",
     "native-base": "^2.3.9",
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-gifted-chat": "^0.3.0",
+    "react-native-hide-show-password-input": "^1.0.7",
     "react-navigation": "^1.0.0-beta.27"
   }
 }
