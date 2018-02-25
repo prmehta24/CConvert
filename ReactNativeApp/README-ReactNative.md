@@ -1,11 +1,13 @@
 # Currency convert mobile application
 This is a simple mobile application which when instructed to convert a currency from one to another will return the converted amount.
 
+![alt text](./src/AppDemo.gif)
+
 ## How does it work?
 * This app is built using React-Native for frontend and Python Flask for backend.
 * It also uses Hasura data api for inserting or fetching data from DB and Hasura Auth API for user authentication.
 * The user has to initially signup using his/her username, e-mail ID and password and login using the same.
-* Once the user logs in, a chat screen opens where the user can make queries such as 'convert 1 rupee to dollar' or 'convert 3 dollars to rupee' etc.
+* Once the user logs in, a chat screen opens where the user can make queries such as 'convert 1 rupee to dollar' or 'convert   3 dollars to rupee' etc.
 * These queries are sent to the bot which replies with the converted amount.
 * The currency conversion bot is implemented using DialogFlow(api.ai).
 * Once the user has finished with all the queries, he/she has to logout.
@@ -17,11 +19,10 @@ This is a simple mobile application which when instructed to convert a currency 
 
 ### Expo version
 * `git clone https://github.com/prmehta24/CConvert.git`
-* `cd Cconvert`
+* `cd CConvert/ReactNativeApp`
 * `npm install`
 * `npm install native-base --save`
-* `npm install --save react-native-keyboard-spacer`
-* `sudo npm install react-native-gifted-chat --save`
+* `npm install react-native-gifted-chat --save`
 * install 'expo' app on your android device. You can download it from the Google Play Store.
 * `npm start`
   
@@ -32,11 +33,22 @@ The app opens!!
 Alternative way :
 * Install expo XDE. Refer https://docs.expo.io/versions/latest/introduction/installation.html for installation.
 * Open expo XDE
-* Click on `Open existing project` and select `Curency_convert`
+* Click on `Open existing project` and select `CConvert`
 * Once the project loads, click on Share.
 * Scan the QR code using the Expo app from your phone (Install from Playstore)
 The app opens!!
 
 ### Using apk
-*Download apk from here :
-*Install in your phone and run it.
+* Download apk from here : https://drive.google.com/open?id=1XaQcaB1HOU4obr6sEt1qOchlgRVNIA5f
+* Install in your phone and run it.
+
+### Expo live demo
+To view the demo of the app on Expo:
+* Scan the following QR code
+<img src="./src/qr.png" height=150 width=150 /> 
+
+#### OR
+
+* Go to the following URL in your expo app: `exp://exp.host/@prajna12/currencySlug`
+
+  
