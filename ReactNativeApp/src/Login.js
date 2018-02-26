@@ -117,9 +117,9 @@ export default class Login extends React.Component {
     </Right>
   </Header>  ):null}
 { this.state.fontLoaded ? (
-<Content contentContainerStyle={{flex:1,justifyContent: 'center',backgroundColor:'#28D49A'}}>
+<Content contentContainerStyle={{flex:1,backgroundColor:'#28D49A'}}>
 
-<View style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
+<View style={{flex:0,marginTop:30,justifyContent:'center',marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
 
 <Item style={{justifyContent:'center',marginBottom:30,borderColor:'transparent'}}><H2>Convert your currency</H2></Item>
 <Item rounded={true} style={{backgroundColor:'white',marginBottom:10,marginLeft:20,marginRight:20}} >

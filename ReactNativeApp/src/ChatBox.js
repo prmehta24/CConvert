@@ -150,13 +150,13 @@ export default class ChatBox extends React.Component {
  //<Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
  <View style={styles.container}>
  <Header style={{backgroundColor:'#276971'}} noShadow={true} >
- <Left><Thumbnail small source={require('../Assets/logo.png')} /></Left>
+ <Left style={{flex:1}}><Thumbnail small source={require('../Assets/logo.png')} /></Left>
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
- <Right>
-  <Button style={{padding:5}}
+ <Right style={{flex:1}}>
+  <Button transparent 
 onPress={() => navigate("Login", {screen: "Login"})} >
-            <MaterialCommunityIcons name='logout-variant' size={20} />
-           <Text>Logout</Text>
+            <MaterialCommunityIcons name='logout-variant' size={35} />
+          
           </Button>
           
   </Right>
