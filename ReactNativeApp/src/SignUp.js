@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet,View,TextInput,KeyboardAvoidingView,Alert } from 'react-native';
-import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H1,Body,Title,Thumbnail} from 'native-base';
+import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H2,Body,Title,Thumbnail} from 'native-base';
 import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
 export default class SignUp extends React.Component {
   
@@ -77,27 +77,32 @@ export default class SignUp extends React.Component {
 <Container style={{height:Expo.Constants.statusBarHeight}} >
 
 <Header  style={{backgroundColor:'#276971'}} >
- <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>Welcome to CConvert</Title></Body>
+<Left style={{flex:1}}><Thumbnail small source={require('../Assets/logo.png')} /></Left>
+ <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
+ <Right style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+  
+          
+  </Right>
 </Header> 
 
 <Content contentContainerStyle={{flex:1,justifyContent: 'center',backgroundColor:'#28D49A'}}>
+<Item style={{justifyContent:'center',marginBottom:30,borderColor:'transparent'}}><H2>Open your account</H2></Item>
+<View style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'#28D49A'}} >
 
-<Card style={{flex:0,padding:10,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
 
-<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Thumbnail large source={require('../Assets/logo.png')}/></Item>
-<Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text>Convert your Currency</Text></Item>
-<Item rounded={true} style={{backgroundColor:'white',marginBottom:10}} >
+
+<Item rounded={true} style={{backgroundColor:'white',marginBottom:10,marginLeft:20,marginRight:20}} >
 <FontAwesome name='user' size={25} style={{marginLeft:10}} />
   
   <Input placeholder= "Username" onChangeText={(text) => this.setState({username:text})} />
 </Item>
-<Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10}} >
+<Item fixedLabel rounded last style={{backgroundColor:'white',marginBottom:10,marginLeft:20,marginRight:20}} >
 <FontAwesome name='lock' size={25} style={{marginLeft:10}}  />
   <Input secureTextEntry={true} placeholder="Password" onChangeText={(text) => this.setState({password:text})}/>
 
 </Item>
 
-<Item style={{ justifyContent: 'center',borderColor:'transparent'}}>
+<Item style={{ justifyContent: 'center',borderColor:'transparent',marginBottom:30}}>
 <Button  rounded style={{padding:10,marginBottom:10}}
 onPress={() => { this.handleSignupPressed()
    
@@ -112,13 +117,13 @@ onPress={() => { this.handleSignupPressed()
          <Button rounded style={{padding:10}}
           onPress={() => navigate("Login", {screen: "Login"})}
           >
-          <Entypo name='back' size={20} />
-            <Text>Back   </Text>
+          <Entypo name='login' size={20} />
+            <Text>Login      </Text>
             
           </Button>
          </Item>
-         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item>
-         </Card>
+         
+         </View>
         
 
 </Content>
