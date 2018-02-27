@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View,NetInfo,Dimensions,Image,ImageBackground } from 'react-native';
 import { Container,Item,Thumbnail,Card,Button } from 'native-base'
+import TimerMixin from 'react-timer-mixin';
 var {height, width} = Dimensions.get('window');
+mixins: [TimerMixin];
 export default class Welcome extends React.Component {
   constructor() {
     super();
@@ -12,11 +14,23 @@ export default class Welcome extends React.Component {
       hasuraMsg:"Hasura server : Not ready"
     };
   }
-  componentWillMount() {
-    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+
+componentDidMount() {
+
+    this.interval = setInterval(() => {
+        console.log("Hi");
+        NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+    if (this.state.isConnected){
     this.handleLoginPressed();
-    this.handleQuery();
-  }
+    this.handleQuery();}
+    }, 6000); //6 seconds
+}
+  
+  // componentWillMount() {
+  //   NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+  //   this.handleLoginPressed();
+  //   this.handleQuery();
+  // }
 
   componentWillUnmount() {
     NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
@@ -116,9 +130,9 @@ export default class Welcome extends React.Component {
   const { navigate } = this.props.navigation
    if (!this.state.isConnected) {
     return (
-      <Container>
+      <Container style={{flex:1, }}>
       <Item>
-      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height}}>
+      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height,alignSelf:"auto" }}>
       <Item style={styles.offlineContainer}>
       <Text style={styles.offlineText}>No Internet Connection</Text>
       </Item>
@@ -127,7 +141,7 @@ export default class Welcome extends React.Component {
         <Thumbnail large source={require('../Assets/logo.png')}/>
         </Item>
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.headText}>CConvert</Text>
+        <Text style={styles.headText}>CCONVERT</Text>
         </Item>
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
         <Text style={styles.appText}> Interact with chatbot to easily convert 120+ currencies  </Text>
@@ -139,15 +153,15 @@ export default class Welcome extends React.Component {
     );
   }
     return (
-      <Container>
+      <Container style={{flex:1}} >
       <Item>
-      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height}}>
+      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height,alignSelf:"auto"}}>
   <Card transparent style={{flex:0,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
         <Thumbnail large source={require('../Assets/logo.png')}/>
         </Item>
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.headText}>CConvert</Text>
+        <Text style={styles.headText}>CCONVERT</Text>
         </Item>
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
         <Text style={styles.appText}> Interact with chatbot to easily convert 120+ currencies  </Text>
@@ -155,13 +169,13 @@ export default class Welcome extends React.Component {
       </Card>
       <Card style={{flex:0,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}}>
       <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.headText}>STATUS</Text>
+        <Text style={styles.statusHeadText}>STATUS</Text>
         </Item>
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.appText}> {this.state.hasuraMsg} </Text>
+        <Text style={styles.statusText}> {this.state.hasuraMsg} </Text>
         </Item>
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-          <Text style={styles.appText}> {this.state.resp}  </Text>
+          <Text style={styles.statusText}> {this.state.resp}  </Text>
         </Item>
         <Item style={{justifyContent:'center'}} >
         <Button style={{padding:10,marginBottom:10}}
@@ -194,28 +208,31 @@ const styles = StyleSheet.create({
   appText: {
     fontWeight:'bold',
     textAlign:'center',
-    textDecorationColor:'#fff',
+    color:'#fff',
     textDecorationStyle:'double',
     fontSize:16
   },
   headText: {
     fontWeight:'bold',
     textAlign:'center',
-    textDecorationColor:'#fff',
+    color:'#000080',
     textDecorationStyle:'double',
+    fontFamily:'notoserif',
     fontSize:30
   },
   statusText: {
     fontWeight:'bold',
     textAlign:'center',
-    textDecorationColor:'#fff',
+    //color:'#32CD32',
     textDecorationStyle:'double',
-    fontSize:16
+    fontFamily:'sans-serif-thin',
+    fontSize:20
   },
   statusHeadText: {
     fontWeight:'bold',
     textAlign:'center',
-    textDecorationColor:'#fff',
+    color:'#5c0815',
+    fontFamily:'sans-serif-medium',
     textDecorationStyle:'double',
     fontSize:24
   }
