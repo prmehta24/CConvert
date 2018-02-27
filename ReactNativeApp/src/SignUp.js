@@ -89,10 +89,6 @@ export default class SignUp extends React.Component {
 
 <View style={{flex:0,marginTop:30,justifyContent:'center',marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
 <Item style={{justifyContent:'center',marginBottom:30,borderColor:'transparent'}}><H2>Open your account</H2></Item>
-
-
-
-
 <Item rounded={true} style={{backgroundColor:'white',marginBottom:10,marginLeft:20,marginRight:20}} >
 <FontAwesome name='user' size={25} style={{marginLeft:10}} />
   
@@ -107,8 +103,7 @@ export default class SignUp extends React.Component {
 <Item style={{ justifyContent: 'center',borderColor:'transparent',marginBottom:30}}>
 <Button  rounded style={{padding:10,marginBottom:10}}
 onPress={() => { this.handleSignupPressed()
-   
-    }}>
+ }}>
             <Entypo name='add-user' size={20} />
             <Text>Register</Text>
           </Button>
