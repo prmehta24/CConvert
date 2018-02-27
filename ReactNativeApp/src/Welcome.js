@@ -3,6 +3,16 @@ import { StyleSheet, Text, View,NetInfo,Dimensions,Image,ImageBackground } from 
 import { Container,Item,Thumbnail,Card,Button } from 'native-base'
 import TimerMixin from 'react-timer-mixin';
 var {height, width} = Dimensions.get('window');
+const dim = Dimensions.get('screen');
+const isPortrait = () => {
+  const dim = Dimensions.get('screen');
+  return dim.height >= dim.width;
+};
+
+const isLandscape = () => {
+  const dim = Dimensions.get('screen');
+  return dim.width >= dim.height;
+};
 mixins: [TimerMixin];
 export default class Welcome extends React.Component {
   constructor() {
@@ -11,8 +21,14 @@ export default class Welcome extends React.Component {
       isConnected : true,
       isClusterReady:false,
       resp:"Bot : Not ready",
-      hasuraMsg:"Hasura server : Not ready"
+      hasuraMsg:"Hasura server : Not ready",
+      orientation: Platform.isPortrait() ? 'portrait' : 'landscape'
     };
+    Dimensions.addEventListener('change', () => {
+      this.setState({
+          orientation: Platform.isPortrait() ? 'portrait' : 'landscape'
+      });
+  });
   }
 
 componentDidMount() {
@@ -155,7 +171,7 @@ componentDidMount() {
     return (
       <Container style={{flex:1}} >
       <Item>
-      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height,alignSelf:"auto"}}>
+      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height}}>
   <Card transparent style={{flex:0,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
         <Thumbnail large source={require('../Assets/logo.png')}/>
