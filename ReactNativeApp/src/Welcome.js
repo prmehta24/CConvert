@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,NetInfo,Dimensions,Image,ImageBackground } from 'react-native';
+import { StyleSheet, Text, View,NetInfo,Dimensions,Image,ImageBackground,Platform } from 'react-native';
 import { Container,Item,Thumbnail,Card,Button } from 'native-base'
 import TimerMixin from 'react-timer-mixin';
 var {height, width} = Dimensions.get('window');
@@ -22,11 +22,11 @@ export default class Welcome extends React.Component {
       isClusterReady:false,
       resp:"Bot : Not ready",
       hasuraMsg:"Hasura server : Not ready",
-      orientation: Platform.isPortrait() ? 'portrait' : 'landscape'
+      orientation: Platform.isPortrait ? 'portrait' : 'landscape'
     };
     Dimensions.addEventListener('change', () => {
       this.setState({
-          orientation: Platform.isPortrait() ? 'portrait' : 'landscape'
+          orientation: Platform.isPortrait ? 'portrait' : 'landscape'
       });
   });
   }
@@ -111,7 +111,8 @@ componentDidMount() {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
-            "Authorization": "Bearer e5b2af61428143da80e7a57380c63af4"
+            /* Shubham's bot*/   "Authorization": "Bearer 368069f780a149fea41071b9e756d504",
+          /* Anakin's bot*/ //  "Authorization": "Bearer e5b2af61428143da80e7a57380c63af4"
         }
     };
     
