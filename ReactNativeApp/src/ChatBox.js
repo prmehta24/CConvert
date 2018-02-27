@@ -72,14 +72,15 @@ export default class ChatBox extends React.Component {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
-            "Authorization": "Bearer e5b2af61428143da80e7a57380c63af4"
+          /* Shubham's bot*/   "Authorization": "Bearer 368069f780a149fea41071b9e756d504",
+          /* Anakin's bot*/ //  "Authorization": "Bearer e5b2af61428143da80e7a57380c63af4"
         }
     };
     
     var body = {
             "lang": "en",
             "query" : this.state.query,
-            "sessionId":"ed49f385-decb-4859-bebd-1dd6b842ac1c",
+           "sessionId":"ed49f385-decb-4859-bebd-1dd6b842ac1c",
             "timezone":"America/Los_Angeles"
     };
     
