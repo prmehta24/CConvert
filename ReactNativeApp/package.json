@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
+    "@shoutem/ui": "^0.23.4",
     "expo": "^23.0.4",
     "native-base": "^2.3.9",
     "react": "16.0.0",

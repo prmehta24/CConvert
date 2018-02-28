@@ -155,7 +155,7 @@ onPress={() => { this.handleLoginPressed()
          </Item>
          
          </View>
-         <Item style={{justifyContent:'center',marginBottom:5,borderColor:'transparent',alignItems:'flex-end'}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item>
+         
 
 </Content>
 ):null}

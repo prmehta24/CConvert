@@ -1,18 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View,NetInfo,Dimensions,Image,ImageBackground,Platform } from 'react-native';
-import { Container,Item,Thumbnail,Card,Button } from 'native-base'
+import { StyleSheet, Text, View,NetInfo,Dimensions,Image,Platform,AppRegistry,ImageBackground,ScrollView,Alert } from 'react-native';
+import { Container,Item,Thumbnail,Card,Button,Content,Header } from 'native-base'
 import TimerMixin from 'react-timer-mixin';
-var {height, width} = Dimensions.get('window');
-const dim = Dimensions.get('screen');
-const isPortrait = () => {
-  const dim = Dimensions.get('screen');
-  return dim.height >= dim.width;
-};
+import {Screen} from '@shoutem/ui'
 
-const isLandscape = () => {
-  const dim = Dimensions.get('screen');
-  return dim.width >= dim.height;
-};
 mixins: [TimerMixin];
 export default class Welcome extends React.Component {
   constructor() {
@@ -22,13 +13,10 @@ export default class Welcome extends React.Component {
       isClusterReady:false,
       resp:"Bot : Not ready",
       hasuraMsg:"Hasura server : Not ready",
-      orientation: Platform.isPortrait ? 'portrait' : 'landscape'
+      NetworkStatus:"Network : Online",
+     
     };
-    Dimensions.addEventListener('change', () => {
-      this.setState({
-          orientation: Platform.isPortrait ? 'portrait' : 'landscape'
-      });
-  });
+  
   }
 
 componentDidMount() {
@@ -37,16 +25,19 @@ componentDidMount() {
         console.log("Hi");
         NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
     if (this.state.isConnected){
+      this.setState({NetworkStatus:"Network : Online"});
     this.handleLoginPressed();
     this.handleQuery();}
+    else
+    {
+      this.setState({NetworkStatus:"Network : Offline"}); 
+      this.setState({hasuraMsg:"Hasura server : Not ready"});
+      this.setState({resp:"Bot : Not ready"});
+    }
     }, 6000); //6 seconds
 }
   
-  // componentWillMount() {
-  //   NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
-  //   this.handleLoginPressed();
-  //   this.handleQuery();
-  // }
+
 
   componentWillUnmount() {
     NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
@@ -55,11 +46,25 @@ componentDidMount() {
   handleConnectivityChange = isConnected => {
     if (isConnected) {
       this.setState({ isConnected });
+      this.setState({NetworkStatus:"Network : Online"});
     } else {
       this.setState({ isConnected });
+      this.setState({NetworkStatus:"Network : Offline"}); 
     }
   };
 
+  checkconditions = async => {
+    const { navigate } = this.props.navigation
+
+    if((this.state.isConnected)&&(this.state.hasuraMsg === "Hasura server: Ready")&&(this.state.resp === "Bot : Ready"))
+    {
+      navigate("Login", {screen: "Login"})
+    }
+    else
+    {
+      Alert.alert("Either the Network, Server or Bot are offline.");
+    }
+  }
   handleLoginPressed = async() => {
     var url = "https://auth.hundred76.hasura-app.io/v1/login";
 
@@ -145,15 +150,14 @@ componentDidMount() {
   }
  render() {
   const { navigate } = this.props.navigation
-   if (!this.state.isConnected) {
+  
     return (
-      <Container style={{flex:1, }}>
+     /*<Container style={{flex:1}} >
       <Item>
-      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height,alignSelf:"auto" }}>
       <Item style={styles.offlineContainer}>
       <Text style={styles.offlineText}>No Internet Connection</Text>
       </Item>
-      <Card transparent style={{flex:0,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
+  <Card transparent style={{flex:1,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
         <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
         <Thumbnail large source={require('../Assets/logo.png')}/>
         </Item>
@@ -164,27 +168,7 @@ componentDidMount() {
         <Text style={styles.appText}> Interact with chatbot to easily convert 120+ currencies  </Text>
         </Item>
       </Card>
-      </ImageBackground> 
-          </Item>
-      </Container>
-    );
-  }
-    return (
-      <Container style={{flex:1}} >
-      <Item>
-      <ImageBackground source={require('../Assets/back.jpg')} blurRadius={ 4 } style={{width:width, height: height}}>
-  <Card transparent style={{flex:0,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
-        <Thumbnail large source={require('../Assets/logo.png')}/>
-        </Item>
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.headText}>CCONVERT</Text>
-        </Item>
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.appText}> Interact with chatbot to easily convert 120+ currencies  </Text>
-        </Item>
-      </Card>
-      <Card style={{flex:0,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}}>
+      <Card style={{flex:1,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}}>
       <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
         <Text style={styles.statusHeadText}>STATUS</Text>
         </Item>
@@ -201,9 +185,50 @@ componentDidMount() {
           </Button>
           </Item>
       </Card>
-      </ImageBackground> 
+     
           </Item>
-      </Container>
+      </Container>*/
+    
+    <ImageBackground style={{flex: 1,width: null,height: null,flexDirection:'column'}} blurRadius={4} imageStyle={{resizeMode: 'stretch'}} source={require('../Assets/back.jpg')}     >
+       <ScrollView>
+       <Card transparent style={{flex:1,backgroundColor:'transparent'}} >
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
+        <Thumbnail large source={require('../Assets/logo.png')}/>
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        <Text style={styles.headText}>CConvert</Text>
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        <Text style={styles.appText}> A one-stop solution for all your currency exchange dilemmas  </Text>
+        </Item>
+      </Card>
+      <Card style={{flex:1,backgroundColor:'transparent'}}>
+      <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        <Text style={styles.statusHeadText}>Status</Text>
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        <Text style={styles.statusText}> {this.state.NetworkStatus} </Text>
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        <Text style={styles.statusText}> {this.state.hasuraMsg} </Text>
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+          <Text style={styles.statusText}> {this.state.resp}  </Text>
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}} >
+        <Button style={{padding:5}}
+            onPress={() => { this.checkconditions()
+   
+  }}>
+            <Text>Go</Text>
+          </Button>
+          </Item>
+      </Card>
+      <Item style={{flex:0,justifyContent:'center',marginBottom:5,borderColor:'transparent',alignItems:'flex-end',marginTop:10}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item>
+      </ScrollView>
+     </ImageBackground>
+ 
+  
     );
   }
  }
@@ -215,7 +240,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    width: width,
+    flex:1,   
     position: 'absolute',
     top: 30
   },
@@ -225,7 +250,7 @@ const styles = StyleSheet.create({
   appText: {
     fontWeight:'bold',
     textAlign:'center',
-    color:'#fff',
+    color:'#141526',
     textDecorationStyle:'double',
     fontSize:16
   },
@@ -248,7 +273,7 @@ const styles = StyleSheet.create({
   statusHeadText: {
     fontWeight:'bold',
     textAlign:'center',
-    color:'#5c0815',
+    color:'#000080',
     fontFamily:'sans-serif-medium',
     textDecorationStyle:'double',
     fontSize:24
