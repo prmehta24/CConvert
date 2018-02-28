@@ -1,5 +1,5 @@
-description: A basic hasura project with some sample data to explore Auth APIs
-keywords: auth-api, getting-started, uikit
+description: Blank template for a Hasura project
+keywords: base, getting-started
 media: {}
-name: auth-api-quickstart
+name: base
 platformVersion: v0.15.23
