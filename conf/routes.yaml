@@ -133,7 +133,7 @@
 #           upstreamServicePort: 80
 #           authorizationPolicy:
 #             restrictToRoles: ["admin"]
-#             noSessionRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/
+#             noSessionRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/login
 #
 #       So if there is no session, the gateway redirects the user to the auth serivce's ui to login
 #
@@ -148,7 +148,7 @@
 #           upstreamServicePort: 80
 #           authorizationPolicy:
 #             restrictToRoles: ["admin"]
-#             noSessionRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/
+#             noSessionRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/login
 #             noAccessRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/restricted
 #
 #   - corsPolicy:
@@ -202,5 +202,13 @@ notify:
     upstreamServicePath: /
     upstreamServicePort: 80
     corsPolicy: allow_all
+app:
+  /:
+    corsPolicy: allow_all
+    upstreamService:
+      name: app
+      namespace: '{{ cluster.metadata.namespaces.user }}'
+    upstreamServicePath: /
+    upstreamServicePort: 80
 
-# To see actual endpoints for these routes, use `$ hasura ms ls`
+# To see actual endpoints for these routes, use `$ hasura cluster status`
