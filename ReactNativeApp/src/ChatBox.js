@@ -130,16 +130,16 @@ export default class ChatBox extends React.Component {
       return ( <Bubble {...props} 
       wrapperStyle={{
           left: {
-            backgroundColor: '#FFB347',
+            backgroundColor: '#008542',
           },
           right: {
-            backgroundColor: '#AB82FF'
+            backgroundColor: '#007AFF'
           }
         }}
       textStyle={{
         left:{
           color:'#fff'
-        }
+        },
       }} />
       )}
   render() {
@@ -175,6 +175,7 @@ onPress={() => navigate("Login", {screen: "Login"})} >
             }
           }
 renderBubble = {this.renderBubble}
+
 /> 
 </View>
 // </Animated.View>
@@ -187,5 +188,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#28D49A',
+    
   },
 });
