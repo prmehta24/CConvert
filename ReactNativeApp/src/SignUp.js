@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet,View,TextInput,KeyboardAvoidingView,Alert } from 'react-native';
+import { StyleSheet,View,TextInput,KeyboardAvoidingView,Alert,ScrollView } from 'react-native';
 import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H2,Body,Title,Thumbnail} from 'native-base';
 import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
 export default class SignUp extends React.Component {
@@ -86,8 +86,8 @@ export default class SignUp extends React.Component {
 </Header> 
 
 <Content contentContainerStyle={{flex:1,backgroundColor:'#28D49A'}}>
-
-<View style={{flex:0,marginTop:30,justifyContent:'center',marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
+<ScrollView>
+<View style={{flex:1,marginTop:30,justifyContent:'center',marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
 <Item style={{justifyContent:'center',marginBottom:30,borderColor:'transparent'}}><H2>Open your account</H2></Item>
 <Item rounded={true} style={{backgroundColor:'white',marginBottom:10,marginLeft:20,marginRight:20}} >
 <FontAwesome name='user' size={25} style={{marginLeft:10}} />
@@ -122,7 +122,7 @@ onPress={() => { this.handleSignupPressed()
          
          </View>
         
-
+</ScrollView>
 </Content>
 
 </Container>

@@ -200,7 +200,23 @@ componentDidMount() {
       </Container>*/
     
     <ImageBackground style={{flex: 1,width: null,height: null,flexDirection:'column'}} blurRadius={4} imageStyle={{resizeMode: 'stretch',backgroundColor: 'rgba(0,0,0,0.1)'}} source={require('../Assets/back2v3.jpg')}     >
-       <ScrollView >
+       <ScrollView contentContainerStyle={{justifyContent:'center'}} >
+       <View style={{flex:1,backgroundColor:'transparent',alignContent:'space-between',marginLeft:10,marginRight:10,flexDirection:'row',marginTop:10}}>
+      
+      {/* <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        <Text style={styles.statusHeadText}>Status</Text>
+        </Item> */}
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        {this.state.NetworkStatus === "Network : Online" ? GreenNet : RedNet }
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        {this.state.hasuraMsg === "Hasura server: Ready" ? GreenServer : RedServer }
+        </Item>
+        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
+        {this.state.resp === "Bot : Ready" ? GreenBot : RedBot }
+        </Item>
+        
+      </View>
        <Card transparent style={{flex:1,backgroundColor:'transparent'}} >
         <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
         <Thumbnail large source={require('../Assets/logo.png')}/>
@@ -220,23 +236,8 @@ componentDidMount() {
             <Text>Try Me</Text>
           </Button>
           </Item>
-      <Card style={{flex:1,backgroundColor:'transparent',alignItems:'flex-start',marginLeft:10,marginRight:10}}>
       
-      {/* <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.statusHeadText}>Status</Text>
-        </Item> */}
-        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        {this.state.NetworkStatus === "Network : Online" ? GreenNet : RedNet }<Text style={styles.statusText}> {this.state.NetworkStatus} </Text>
-        </Item>
-        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        {this.state.hasuraMsg === "Hasura server: Ready" ? GreenServer : RedServer }<Text style={styles.statusText}> {this.state.hasuraMsg} </Text>
-        </Item>
-        <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        {this.state.resp === "Bot : Ready" ? GreenBot : RedBot }<Text style={styles.statusText}> {this.state.resp}  </Text>{/* <Octicons style={{color:"#008542"}}name="primitive-dot" size={30}/> */}
-        </Item>
-        
-      </Card>
-      <Item style={{flex:0,justifyContent:'center',marginBottom:5,borderColor:'transparent',alignItems:'flex-end',marginTop:10}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item>
+      {/* <Item style={{flex:0,justifyContent:'center',marginBottom:5,borderColor:'transparent',alignItems:'flex-end',marginTop:10}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item> */}
       </ScrollView>
      </ImageBackground>
  
