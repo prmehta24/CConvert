@@ -1,5 +1,2 @@
-description: A basic hasura project with some sample data to explore Auth APIs
-keywords: auth-api, getting-started, uikit
-media: {}
-name: auth-api-quickstart
+name: currency_converter_bot_cconvert
 platformVersion: v0.15.23
