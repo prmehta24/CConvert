@@ -3,7 +3,7 @@ import { StyleSheet, Text, View,NetInfo,Dimensions,Image,Platform,AppRegistry,Im
 import { Container,Item,Thumbnail,Card,Button,Content,Header,Footer } from 'native-base'
 import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome,Octicons } from '@expo/vector-icons';
 import TimerMixin from 'react-timer-mixin';
-import {Screen} from '@shoutem/ui'
+
 
 mixins: [TimerMixin];
 export default class Welcome extends React.Component {
@@ -162,49 +162,9 @@ componentDidMount() {
   const RedBot = <MaterialCommunityIcons style={{color:"#D84F57"}} name="robot" size={30}/>
   
     return (
-     /*<Container style={{flex:1}} >
-      <Item>
-      <Item style={styles.offlineContainer}>
-      <Text style={styles.offlineText}>No Internet Connection</Text>
-      </Item>
-  <Card transparent style={{flex:1,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}} >
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
-        <Thumbnail large source={require('../Assets/logo.png')}/>
-        </Item>
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.headText}>CCONVERT</Text>
-        </Item>
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.appText}> Interact with chatbot to easily convert 120+ currencies  </Text>
-        </Item>
-      </Card>
-      <Card style={{flex:1,top:70,marginLeft:10,marginRight:10,backgroundColor:'transparent'}}>
-      <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.statusHeadText}>STATUS</Text>
-        </Item>
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.statusText}> {this.state.hasuraMsg} </Text>
-        </Item>
-        <Item style={{justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-          <Text style={styles.statusText}> {this.state.resp}  </Text>
-        </Item>
-        <Item style={{justifyContent:'center'}} >
-        <Button style={{padding:10,marginBottom:10}}
-            onPress={() => navigate("Login", {screen: "Login"})}>
-            <Text>GO</Text>
-          </Button>
-          </Item>
-      </Card>
-     
-          </Item>
-      </Container>*/
       <Container contentContainerStyle={{flex:1}}>
       <Header style={{backgroundColor:'#28D49A',height:-60}}>
       <View style={{flex:1,backgroundColor:'transparent',alignContent:'space-between',marginLeft:10,marginRight:10,flexDirection:'row',marginTop:10}}>
-      
-      {/* <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
-        <Text style={styles.statusHeadText}>Status</Text>
-        </Item> */}
         <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent',flexDirection:'column'}}>
         {this.state.NetworkStatus === "Network : Online" ? GreenNet : RedNet }
          <Text style={{fontSize:16}}>Network</Text>
@@ -235,9 +195,6 @@ componentDidMount() {
         <Text style={styles.appText}> A one-stop solution for all your currency exchange dilemmas  </Text>
         </Item>
       </Card>
-     
-      
-      {/* <Item style={{flex:0,justifyContent:'center',marginBottom:5,borderColor:'transparent',alignItems:'flex-end',marginTop:10}}><Text style={{fontSize:9}}>Version 1.0  Build  24/2/18</Text></Item> */}
       </ScrollView>
      </ImageBackground>
      

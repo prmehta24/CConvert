@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { StyleSheet, View,TextInput,KeyboardAvoidingView, Animated, Keyboard, FlatList, Alert, ScrollView  } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H1,Body,Title,Thumbnail} from 'native-base';
 import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
 import {GiftedChat,Bubble,Day} from 'react-native-gifted-chat';
@@ -12,7 +11,6 @@ export default class ChatBox extends React.Component {
   }
   constructor(props) {
     super(props);
-    this.keyboardHeight = new Animated.Value(0);
     this.state = {
       query : ' ',
       messages: [],
@@ -22,8 +20,6 @@ export default class ChatBox extends React.Component {
   }
 
   componentDidMount () {
-    this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
-    this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide); 
     this.setState({
       messages : [
         {
@@ -39,31 +35,6 @@ export default class ChatBox extends React.Component {
       ]
     })
   }
- 
-  componentWillUnmount() {
-    this.keyboardDidShowSub.remove();
-    this.keyboardDidHideSub.remove();
-  }
-
-  keyboardDidShow = (event) => {
-    Animated.parallel([
-      Animated.timing(this.keyboardHeight, {
-      //  duration: event.duration,
-        toValue: event.endCoordinates.height,
-      }),
-      
-    ]).start();
-  };
-
-  keyboardDidHide = (event) => {
-    Animated.parallel([
-      Animated.timing(this.keyboardHeight, {
-       // duration: event.duration,
-        toValue: 0,
-      }),
-     
-    ]).start();
-  };
   handleQuery = async() => {
     console.log(this.state.query)
     var url = "https://api.dialogflow.com/v1/query?v=20150910";
@@ -151,7 +122,6 @@ export default class ChatBox extends React.Component {
     const { params } = this.props.navigation.state;
     const username = params ? params.username : null;
     return ( 
- //<Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
  <View style={styles.container}>
  <Header style={{backgroundColor:'#276971'}} noShadow={true} >
  <Left style={{flex:1}}><Thumbnail style={{width:60,height:60,borderRadius:60/2}} source={require('../Assets/ownlogo6.png')} /></Left>
@@ -182,8 +152,6 @@ renderDay={this.renderDay}
 
 /> 
 </View>
-// </Animated.View>
- 
     );
   }
 }

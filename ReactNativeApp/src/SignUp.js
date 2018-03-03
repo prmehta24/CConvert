@@ -12,13 +12,9 @@ export default class SignUp extends React.Component {
       password : ' ',
       email : ' ',
       authToken:' ',
-      // loading: true,
-      // error: false,
-      // posts: [],
 	  }
   }
   static navigationOptions = {
-    title: "Sign Up",
     header:null,
   }
  
@@ -40,7 +36,6 @@ export default class SignUp extends React.Component {
           "data": {
               "username": this.state.username,
               "password": this.state.password,
-              //"email": "mail"
           }
       };
       
@@ -58,8 +53,6 @@ export default class SignUp extends React.Component {
         Alert.alert("Error: "+responseJson.message);
       }
         else{
-      //  this.setState({isLoggedIn:true})
-       // Alert.alert("Success")
        navigate("Login", {screen: "Login"})
 
       }
@@ -139,7 +132,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //alignItems: 'center',
     justifyContent: 'center',
     padding:10,
   },

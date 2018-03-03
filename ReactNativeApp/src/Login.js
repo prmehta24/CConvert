@@ -14,7 +14,6 @@ export default class Login extends React.Component {
 	  }
   }
   static navigationOptions = {
-  //  title: "Login",
    header:null,
   }
   async componentWillMount() {
@@ -42,7 +41,6 @@ export default class Login extends React.Component {
         "data": {
             "username": this.state.username,
             "password": this.state.password,
-            //"email": "mail"
         }
     };
     
@@ -61,9 +59,7 @@ export default class Login extends React.Component {
         Alert.alert("Error: "+responseJson.message);
       }
       else
-      {
-     // this.setState({isLoggedIn:true})
-      
+      {      
       navigate("ChatBox", {username:this.state.username})
       }
     })
@@ -75,37 +71,6 @@ export default class Login extends React.Component {
     const { navigate } = this.props.navigation
     
     return (
-      /*<KeyboardAvoidingView  style={styles.container} behavior="padding">
-        
-        <TextInput
-          style={{height: 40}}
-          placeholder="Username"
-          onChangeText={(text) => this.setState({username:text})}
-        />
-          <TextInput
-         style={{height: 40}}
-          placeholder="Password"
-          onChangeText={(text) => this.setState({password:text})}
-        />
-        <View  style={{paddingBottom:10}}>
-        <Button
-  onPress={() => { this.handleLoginPressed()
-   // if(this.state.isLoggedIn == true) 
-    }}
-  title="Login"
-  color="#841584"
-/>
-</View>
-<Button
-  onPress={() => navigate("SignUp", {screen: "SignUp"})}
-  title="Sign Up"
-  color="#841554"
- 
-  
-/>
-<View style={{ height: 60 }} />
-</KeyboardAvoidingView>*/
-
 <Container style={{height:Expo.Constants.statusBarHeight}} >
 { this.state.fontLoaded ? (
   <Header  style={{backgroundColor:'#276971'}} >
