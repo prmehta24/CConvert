@@ -35,7 +35,7 @@ componentDidMount() {
       this.setState({hasuraMsg:"Hasura server : Not ready"});
       this.setState({resp:"Bot : Not ready"});
     }
-    }, 6000); //6 seconds
+    }, 1000); //1 second
 }
   
 

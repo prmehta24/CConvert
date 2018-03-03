@@ -48,7 +48,7 @@ export default class SignUp extends React.Component {
         if(responseJson.auth_token === undefined)
       {
         if(responseJson.message === "cluster is processing action: waking" || responseJson.status === "waking")
-        Alert.alert("Please wait for sometime");
+        Alert.alert("The server seems to be offline.");
         else
         Alert.alert("Error: "+responseJson.message);
       }
