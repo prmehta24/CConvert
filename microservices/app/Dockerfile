@@ -1,11 +1,22 @@
-FROM mhart/alpine-node:7.6.0
+FROM python:3
 
-WORKDIR /src
+# install required debian packages
+# add any package that is required after `python-dev`, end the line with \
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python-dev \
+&& rm -rf /var/lib/apt/lists/*
 
-# Add app source files
-ADD src /src
+# install requirements
+COPY src/requirements.txt /tmp/requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
 
-#install node modules
-RUN npm install
+# set /app as working directory
+WORKDIR /app
 
-CMD ["node", "server.js"]
+# copy current directory to /app
+COPY . /app
+
+# run gunicorn server
+# port is configured through the gunicorn config file
+CMD ["gunicorn", "--config", "./conf/gunicorn_config.py", "src:app"]

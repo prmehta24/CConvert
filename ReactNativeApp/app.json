@@ -1,7 +1,7 @@
 {
   "expo": {
 	"name": "CConvert",
-	"icon": "./Assets/logo.png",
+	"icon": "./Assets/ownlogo6.png",
 	"version": "1.0.0",    
 	"slug": "currencySlug",
 	"sdkVersion": "23.0.0",

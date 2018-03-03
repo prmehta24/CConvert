@@ -1,7 +1,7 @@
 - alias: hasura
   config:
     configmap: controller-conf
-    namespace: animosity52-hasura
+    namespace: bursae10-hasura
   data: null
-  kubeContext: animosity52
-  name: animosity52
+  kubeContext: bursae10
+  name: bursae10
