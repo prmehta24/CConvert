@@ -4,7 +4,7 @@ import { StyleSheet, View,TextInput,KeyboardAvoidingView, Animated, Keyboard, Fl
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Container,Card,CardItem,Left,Right, Header, Content,Footer, Form, Item, Input,Label,Icon,Button,Text ,H1,Body,Title,Thumbnail} from 'native-base';
 import { EvilIcons,MaterialIcons,Ionicons,MaterialCommunityIcons, Feather,Entypo,FontAwesome } from '@expo/vector-icons';
-import {GiftedChat,Bubble} from 'react-native-gifted-chat';
+import {GiftedChat,Bubble,Day} from 'react-native-gifted-chat';
 export default class ChatBox extends React.Component {
   static navigationOptions = {
     title: "Chat",
@@ -142,6 +142,9 @@ export default class ChatBox extends React.Component {
         },
       }} />
       )}
+      renderDay(props) {
+        return <Day {...props} textStyle={{color: 'black'}}/>
+      }
   render() {
     const { navigate } = this.props.navigation;
     const { messages } = this.state;
@@ -175,6 +178,7 @@ onPress={() => navigate("Login", {screen: "Login"})} >
             }
           }
 renderBubble = {this.renderBubble}
+renderDay={this.renderDay}
 
 /> 
 </View>
