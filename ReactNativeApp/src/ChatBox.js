@@ -154,7 +154,7 @@ export default class ChatBox extends React.Component {
  //<Animated.View style={[styles.container, { paddingBottom: this.keyboardHeight }]}>
  <View style={styles.container}>
  <Header style={{backgroundColor:'#276971'}} noShadow={true} >
- <Left style={{flex:1}}><Thumbnail small source={require('../Assets/logo.png')} /></Left>
+ <Left style={{flex:1}}><Thumbnail style={{width:60,height:60,borderRadius:60/2}} source={require('../Assets/ownlogo6.png')} /></Left>
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
  <Right style={{flex:1}}>
   <Button transparent 

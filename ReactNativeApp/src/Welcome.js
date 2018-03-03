@@ -221,12 +221,12 @@ componentDidMount() {
       </View>
       </Header>
     
-    <ImageBackground style={{flex: 1,width: null,height: null,flexDirection:'column',justifyContent:'center'}} blurRadius={4} imageStyle={{resizeMode: 'stretch'}} source={require('../Assets/back2v3.jpg')}     >
+    <ImageBackground style={{flex: 1,width: null,height: null,flexDirection:'column',justifyContent:'center'}} blurRadius={4} imageStyle={{resizeMode: 'stretch'}} source={require('../Assets/back2v6.jpg')}     >
        <ScrollView contentContainerStyle={{justifyContent:'center'}} >
        
        <Card transparent style={{flex:1,backgroundColor:'transparent',justifyContent:'center'}} >
         <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent',paddingTop:30}}>
-        <Thumbnail large source={require('../Assets/logo.png')}/>
+        <Thumbnail source={require('../Assets/ownlogo6.png')} style={{width:110,height:110,borderRadius:110/2}}/>
         </Item>
         <Item style={{flex:1,justifyContent:'center',marginBottom:10,borderColor:'transparent'}}>
         <Text style={styles.headText}>CConvert</Text>

@@ -77,7 +77,7 @@ export default class SignUp extends React.Component {
 <Container style={{height:Expo.Constants.statusBarHeight}} >
 
 <Header  style={{backgroundColor:'#276971'}} >
-<Left style={{flex:1}}><Thumbnail small source={require('../Assets/logo.png')} /></Left>
+<Left style={{flex:1}}><Thumbnail style={{width:60,height:60,borderRadius:60/2}} source={require('../Assets/ownlogo6.png')} /></Left>
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
  <Right style={{flex:1,justifyContent:'center',alignItems:'center'}}>
   
