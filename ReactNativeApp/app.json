@@ -1,15 +1,23 @@
+
 {
   "expo": {
-	"name": "CConvert",
-	"icon": "./Assets/ownlogo6.png",
-	"version": "1.0.0",    
-	"slug": "currencySlug",
-	"sdkVersion": "23.0.0",
-	"androidStatusBar":{
-				"backgroundColor":"#2826ff"
-			   },
-       	"android": {
-		    "package": "com.example.CConvert"
-		   },
+    "name": "CConvert",
+		"slug": "currencySlug",
+		"version": "1.0.0",    
+    "icon": "./Assets/ownlogo6.png",
+    "loading": {
+      "icon": "./Assets/ownlogo6.png",
+    },
+    "privacy": "unlisted",
+		"sdkVersion": "23.0.0",
+		"androidStatusBar":{
+			"backgroundColor":"#2826ff"
+			 },
+    "ios": {
+      "bundleIdentifier": "com.example.CConvert"
+    },
+		"android": {
+			"package": "com.example.CConvert"
+		 },
   }
 }
