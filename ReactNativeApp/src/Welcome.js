@@ -35,7 +35,7 @@ componentDidMount() {
       this.setState({hasuraMsg:"Hasura server : Not ready"});
       this.setState({resp:"Bot : Not ready"});
     }
-    }, 1000); //1 second
+    }, 3000); //3 second
 }
   
 
@@ -133,12 +133,19 @@ componentDidMount() {
     fetch(url, requestOptions)
     .then((response) => response.json())
     .then((responseJson) => {
+      console.log(responseJson);
      if(responseJson.result.fulfillment.speech === "The converted amount is : 0.02 USD")
+     {
      this.setState({resp:"Bot : Ready"});
-    
+     }    
      else
+     {
      this.setState({resp:"Bot : Not ready"});
+     }
+    
+     console.log(this.state.resp);
       })
+     
     .catch((error) => {
       console.log(error);
     });

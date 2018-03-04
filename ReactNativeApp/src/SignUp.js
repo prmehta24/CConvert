@@ -53,6 +53,7 @@ export default class SignUp extends React.Component {
         Alert.alert("Error: "+responseJson.message);
       }
         else{
+          Alert.alert("Thank you for registering.");
        navigate("Login", {screen: "Login"})
 
       }

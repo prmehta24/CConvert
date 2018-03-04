@@ -61,8 +61,16 @@ export default class ChatBox extends React.Component {
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
+      if(responseJson.result.fulfillment.speech === "" || responseJson.result.fulfillment.speech === undefined )
+      {
+        this.setState({resp:"The bot seems to be experiencing technical difficulties : "+responseJson.status});
+      }
+      else
+      {
       this.setState({resp:responseJson.result.fulfillment.speech});
-      console.log(responseJson.result.fulfillment.speech)
+      }
+      console.log(responseJson)
+      console.log(this.state.resp)
       this.onReceive(this.state.resp);
       })
     .catch((error) => {
@@ -128,7 +136,7 @@ export default class ChatBox extends React.Component {
  <Body style={{flex:1,justifyContent:'center',alignItems:'center'}}><Title>CConvert</Title></Body>
  <Right style={{flex:1}}>
   <Button transparent 
-onPress={() => navigate("Login", {screen: "Login"})} >
+onPress={() => navigate("Welcome", {screen: "Welcome"})} >
             <MaterialCommunityIcons name='logout-variant' size={35} />
           
           </Button>
