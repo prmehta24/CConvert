@@ -2,7 +2,9 @@
 {
   "expo": {
     "name": "CConvert",
-		"slug": "currencySlug",
+    "slug": "CConvert",
+    "description": "A Currency Converter Bot",
+    "githubUrl":"https://github.com/prmehta24/CConvert",
 		"version": "1.0.0",    
     "icon": "./Assets/ownlogo6.png",
     "loading": {

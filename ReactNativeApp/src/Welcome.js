@@ -63,7 +63,7 @@ componentDidMount() {
     }
     else
     {
-      Alert.alert("Either the Network, Server or Bot are offline.");
+      Alert.alert("Warning","Either the Network, Server or Bot are offline. Please wait for upto 3 minutes for all the icons to go green.");
     }
   }
   handleLoginPressed = async() => {
