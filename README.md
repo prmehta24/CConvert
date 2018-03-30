@@ -1,4 +1,4 @@
-# "CConvert" 
+# CConvert 
 * This application was built as part of Hasura Product Development Fellowship 2017-18 by Team 63PF. It converts a given amount from one currency to another.
 * The published version with proper documentation can be found [here](https://hasura.io/hub/projects/prmehta24/currency_converter_bot_cconvert). 
 
