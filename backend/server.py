@@ -27,12 +27,12 @@ class Todo(Resource):
         rate = float(abc["rates"][currency_to])
         converted_amount = str(round(Decimal(amount * rate),2))
         speech = "The converted amount is : " + converted_amount + " " + currency_to
-        response = {
+        response_post = {
             "speech": speech,
             "displayText": speech,
             "source": "Conversion.py"
         }
-        return response
+        return response_post
 
 
 
